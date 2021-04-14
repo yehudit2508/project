@@ -23,21 +23,8 @@ const connectionParams={
     useUnifiedTopology:true
 
 }
-app.set('view engine', 'ejs')
 
 
-// const getUser =
-app.get('/login/:id', (req, res) => {
-
-    console.log("id: ", req.params.id)
-    User.findById(req.params.id).then((user) => {
-        console.log("success")
-        // res.status(200).send(user)
-        res.render('main', { user: user.name})
-    }).catch((err) => {
-        res.status(400).send(err.message)
-    })
-})
 mongoose.connect(process.env.DB_CONNECT, connectionParams)
     .then(() => {
         console.log("connected");
