@@ -20,8 +20,7 @@ const getUser = (req, res) => {
     console.log("id: ", req.params.id)
     User.findById(req.params.id).then((user) => {
         console.log("success  ",user.name)
-        // res.status(200).send(user)
-        res.write(user.name);
+        res.status(200).send(user)
     }).catch((err) => {
         res.status(400).send(err.message)
     })
